@@ -4,9 +4,6 @@ from datetime import datetime
 import boto3
 import os
 import glob
-from cred import aws_access_key_id,aws_secret_access_key
-
-
 
 
 # main extractor////////
