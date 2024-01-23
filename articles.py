@@ -4,6 +4,7 @@ from datetime import datetime
 import boto3
 import os
 import glob
+from cred import aws_access_key_id,aws_secret_access_key
 
 
 
@@ -875,8 +876,8 @@ def upload_scrap_data_to_space(bucket_name, folder_name, file_path):
     s3_client = boto3.client('s3',
                         region_name='nyc3',
                         endpoint_url='https://nyc3.digitaloceanspaces.com',
-                        aws_access_key_id='DO00797ZA2B4DQCUMJGE',
-                        aws_secret_access_key='KLaSQaz9azs+zzveiZrEJxCfPkpIXv5VEhuXAkUAEOw',
+                        aws_access_key_id=aws_access_key_id,
+                        aws_secret_access_key= aws_secret_access_key,
                         )
     current_date = datetime.today().strftime("%A-%d-%B-%Y")
     folder_key = f"{folder_name}_" + current_date + '/'  # Add a trailing slash to represent the folder
