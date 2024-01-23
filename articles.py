@@ -896,6 +896,7 @@ insert_scrap_data(all_scrap_func)
 #Upload each CSV file to the folder
 csv_files = glob.glob('LatestArticles/*.csv')
 for file_path in csv_files:
+  print("creating data")
   upload_scrap_data_to_space('scrap-data','latestArticles', file_path)
         
 #print("hello")
