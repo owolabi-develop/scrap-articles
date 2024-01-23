@@ -4,7 +4,7 @@ from datetime import datetime
 import boto3
 import os
 import glob
-from cred import aws_access_key_id,aws_secret_access_key
+from cred import my_access_key_id,my_secret_access_key
 
 
 
@@ -876,8 +876,8 @@ def upload_scrap_data_to_space(bucket_name, folder_name, file_path):
     s3_client = boto3.client('s3',
                         region_name='nyc3',
                         endpoint_url='https://nyc3.digitaloceanspaces.com',
-                        aws_access_key_id=aws_access_key_id,
-                        aws_secret_access_key= aws_secret_access_key,
+                        aws_access_key_id=my_access_key_id,
+                        aws_secret_access_key= my_secret_access_key,
                         )
     current_date = datetime.today().strftime("%A-%d-%B-%Y")
     folder_key = f"{folder_name}_" + current_date + '/'  # Add a trailing slash to represent the folder
@@ -897,7 +897,6 @@ insert_scrap_data(all_scrap_func)
 #Upload each CSV file to the folder
 csv_files = glob.glob('LatestArticles/*.csv')
 for file_path in csv_files:
-  print("creating data")
   upload_scrap_data_to_space('scrap-data','latestArticles', file_path)
         
 #print("hello")
