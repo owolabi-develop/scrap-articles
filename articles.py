@@ -891,11 +891,11 @@ def insert_scrap_data(all_scrap_func):
     for article_collection in all_scrap_func:
         article_collection()
 
-#insert_scrap_data(all_scrap_func)
+insert_scrap_data(all_scrap_func)
 
 #Upload each CSV file to the folder
-#csv_files = glob.glob('LatestArticles/*.csv')
-#for file_path in csv_files:
-  # upload_scrap_data_to_space('scrap-data','latestArticles', file_path)
+csv_files = glob.glob('LatestArticles/*.csv')
+for file_path in csv_files:
+  upload_scrap_data_to_space('scrap-data','latestArticles', file_path)
         
-print("hello")
+#print("hello")
